@@ -5,6 +5,7 @@ api-version: '1.21'
 authors: [Wobble]
 description: Combat tag plugin inspired by Donut-style servers.
 website: https://github.com/mororpm
+loadbefore: [EmeraldAura]
 softdepend: [PlaceholderAPI]
 commands:
   wobblecombat:

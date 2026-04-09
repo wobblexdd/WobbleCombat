@@ -6,6 +6,7 @@ import com.wobble.wobblecombat.api.service.WobbleCombatService;
 import com.wobble.wobblecombat.combat.CombatManager;
 import com.wobble.wobblecombat.combat.CrystalOwnershipTracker;
 import com.wobble.wobblecombat.config.MessagesConfig;
+import com.wobble.wobblecombat.hook.AuraCombatBridgeManager;
 import com.wobble.wobblecombat.hook.WobbleCombatPlaceholderExpansion;
 import com.wobble.wobblecombat.listener.CombatListener;
 import com.wobble.wobblecombat.listener.ConnectionListener;
@@ -28,6 +29,7 @@ public final class WobbleCombatPlugin extends JavaPlugin {
     private WobbleCombatPlaceholderExpansion placeholderExpansion;
     private BukkitTask historyAutosaveTask;
     private WobbleCombatService combatService;
+    private AuraCombatBridgeManager auraCombatBridgeManager;
 
     @Override
     public void onEnable() {
@@ -39,6 +41,7 @@ public final class WobbleCombatPlugin extends JavaPlugin {
         this.historyStorage.reload();
 
         this.combatManager = new CombatManager(this);
+        this.auraCombatBridgeManager = new AuraCombatBridgeManager(this);
         this.combatService = new SimpleWobbleCombatService(combatManager);
         this.combatManager.loadHistory(historyStorage.load());
         this.combatManager.start();
@@ -47,7 +50,7 @@ public final class WobbleCombatPlugin extends JavaPlugin {
         CrystalOwnershipTracker crystalOwnershipTracker = new CrystalOwnershipTracker(this);
         getServer().getPluginManager().registerEvents(crystalOwnershipTracker, this);
         getServer().getPluginManager().registerEvents(new CombatListener(this, combatManager, crystalOwnershipTracker), this);
-        getServer().getPluginManager().registerEvents(new ConnectionListener(this, combatManager), this);
+        getServer().getPluginManager().registerEvents(new ConnectionListener(this, combatManager, auraCombatBridgeManager), this);
         getServer().getPluginManager().registerEvents(new DeathListener(this, combatManager), this);
         getServer().getPluginManager().registerEvents(new StateListener(combatManager), this);
         getServer().getPluginManager().registerEvents(new RestrictionListener(this, combatManager), this);
@@ -142,5 +145,9 @@ public final class WobbleCombatPlugin extends JavaPlugin {
 
     public WobbleCombatService getCombatService() {
         return combatService;
+    }
+
+    public AuraCombatBridgeManager getAuraCombatBridgeManager() {
+        return auraCombatBridgeManager;
     }
 }

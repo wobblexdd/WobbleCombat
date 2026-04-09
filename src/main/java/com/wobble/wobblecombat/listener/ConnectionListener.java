@@ -3,6 +3,7 @@ package com.wobble.wobblecombat.listener;
 import com.wobble.wobblecombat.WobbleCombatPlugin;
 import com.wobble.wobblecombat.api.event.WobbleCombatLogEvent;
 import com.wobble.wobblecombat.combat.CombatManager;
+import com.wobble.wobblecombat.hook.AuraCombatBridgeManager;
 import com.wobble.wobblecombat.util.Text;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.Bukkit;
@@ -19,10 +20,12 @@ public final class ConnectionListener implements Listener {
 
     private final WobbleCombatPlugin plugin;
     private final CombatManager combatManager;
+    private final AuraCombatBridgeManager auraCombatBridgeManager;
 
-    public ConnectionListener(WobbleCombatPlugin plugin, CombatManager combatManager) {
+    public ConnectionListener(WobbleCombatPlugin plugin, CombatManager combatManager, AuraCombatBridgeManager auraCombatBridgeManager) {
         this.plugin = plugin;
         this.combatManager = combatManager;
+        this.auraCombatBridgeManager = auraCombatBridgeManager;
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
@@ -61,8 +64,16 @@ public final class ConnectionListener implements Listener {
 
         combatManager.notifyCombatLog(player, reason);
         combatManager.addHistory(player, null, "COMBAT_LOG", reason == null || reason.isBlank() ? "quit" : reason);
-        Bukkit.getPluginManager().callEvent(new WobbleCombatLogEvent(player, combatManager.getLastAttackerName(player), reason, combatManager.getCombatLogPunishmentMode()));
-        combatManager.executeCombatLogPunishment(player);
+        boolean delegated = auraCombatBridgeManager.handleCombatLogout(player, combatManager.getLastAttacker(player), reason);
+        Bukkit.getPluginManager().callEvent(new WobbleCombatLogEvent(
+                player,
+                combatManager.getLastAttackerName(player),
+                reason,
+                delegated ? CombatManager.CombatLogPunishmentMode.NONE : combatManager.getCombatLogPunishmentMode()
+        ));
+        if (!delegated) {
+            combatManager.executeCombatLogPunishment(player);
+        }
         combatManager.clear(player);
     }
 }
