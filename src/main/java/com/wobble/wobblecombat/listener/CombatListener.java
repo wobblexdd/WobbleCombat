@@ -33,12 +33,12 @@ public final class CombatListener implements Listener {
         this.crystalOwnershipTracker = crystalOwnershipTracker;
     }
 
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onDamage(EntityDamageByEntityEvent event) {
         if (!(event.getEntity() instanceof Player victim)) {
             return;
         }
-        if (!combatManager.shouldTagForDamage(event.getFinalDamage())) {
+        if (!combatManager.shouldTagForDamage(event.getFinalDamage(), event.getDamage())) {
             return;
         }
 

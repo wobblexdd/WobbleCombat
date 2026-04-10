@@ -343,8 +343,8 @@ public final class CombatManager {
         return getHistory(player).size();
     }
 
-    public boolean shouldTagForDamage(double finalDamage) {
-        return finalDamage >= minimumFinalDamageToTag;
+    public boolean shouldTagForDamage(double finalDamage, double baseDamage) {
+        return Math.max(finalDamage, baseDamage) >= minimumFinalDamageToTag;
     }
 
     public boolean shouldIgnoreSelfDamageTagging() {
