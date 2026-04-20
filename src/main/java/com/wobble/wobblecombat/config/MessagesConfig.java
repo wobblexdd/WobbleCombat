@@ -48,7 +48,7 @@ public final class MessagesConfig {
         defaults.put("chat.tagged", "&cYou are now in combat for &f{time}&c seconds.");
         defaults.put("chat.untagged", "&aYou are no longer in combat.");
         defaults.put("chat.quit-broadcast", "&c{player} logged out during combat and died.");
-        defaults.put("chat.reload", "&aWobbleCombat reloaded.");
+        defaults.put("chat.reload", "&aWCombatLog reloaded.");
         defaults.put("chat.no-permission", "&cYou do not have permission.");
         defaults.put("chat.player-not-found", "&cPlayer not found.");
         defaults.put("chat.status-self", "&7Combat: &f{status} &8| &7Time: &f{time}s &8| &7Attacker: &f{attacker}");

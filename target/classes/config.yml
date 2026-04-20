@@ -1,0 +1,82 @@
+# Seconds a player stays in combat after PvP damage.
+combat-tag-duration: 15
+
+# Worlds where combat tagging is fully disabled.
+disabled-worlds:
+  - example_world
+
+# Commands list used by settings.command-block-mode.
+# BLACKLIST = only commands below are blocked.
+# WHITELIST = every command is blocked except commands below.
+# Namespaced bypasses such as /essentials:home are also checked.
+blocked-commands:
+  - /home
+  - /spawn
+  - /warp
+  - /tpa
+  - /tpaccept
+  - /tphub
+  - /sethome
+
+settings:
+  # KILL, NONE, STRIP, COMMANDS or HYBRID
+  combat-log-punishment-mode: KILL
+  # Extra console commands executed on combat log.
+  # Available placeholders: {player}, {time}, {attacker}
+  combat-log-commands: []
+  # Broadcast combat log punishments.
+  broadcast-combat-log: true
+  # Ignore creative and spectator players.
+  ignore-non-survival: true
+  # Clear combat tag on death.
+  clear-tag-on-death: true
+  # Punish players kicked from server while tagged.
+  punish-on-kick: true
+  # If kick reason contains any of these fragments, punishment is skipped.
+  ignored-kick-reasons:
+    - restart
+    - restarting
+    - server closed
+    - proxy restart
+  # BLACKLIST or WHITELIST
+  command-block-mode: BLACKLIST
+  # Apply PlaceholderAPI placeholders in messages if plugin exists.
+  use-placeholderapi-if-available: true
+  # Register %wobblecombat_*% placeholders in PlaceholderAPI.
+  register-placeholderapi-expansion: true
+  # Close chest / menu inventories immediately when a player gets tagged.
+  close-open-inventory-on-tag: false
+  # Manual combat-log inventory/experience handling.
+  # Useful when you want deterministic punish behavior before kill commands/plugins run.
+  combat-log-drop-inventory: false
+  combat-log-clear-inventory: false
+  combat-log-drop-exp: false
+  combat-log-clear-exp: false
+  restrictions:
+    block-ender-pearl: false
+    block-chorus-fruit: false
+    block-portals: false
+    block-elytra: false
+  damage:
+    minimum-final-damage-to-tag: 0.1
+    ignore-self-damage-tagging: true
+  diagnostics:
+    # Log exact reasons when a tag attempt is skipped (bypass/world/gamemode/etc).
+    log-tag-skip-reasons: true
+  staff-notify:
+    combat-log:
+      enabled: false
+      permission: wobblecombat.notify
+      format: "&8[&cWCombatLog&8] &f{player} &7logged during combat. &8(&f{attacker}&8)"
+
+  # Stored in-memory history entries per player for /wc history
+  history-limit: 15
+
+
+  history-storage:
+    enabled: true
+    # YAML or SQLITE
+    type: YAML
+    file: histories.yml
+    sqlite-file: histories.db
+    autosave-seconds: 30

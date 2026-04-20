@@ -154,7 +154,7 @@ public final class CombatManager {
         this.blockElytra = config.getBoolean("settings.restrictions.block-elytra", false);
         this.combatLogNotifyEnabled = config.getBoolean("settings.staff-notify.combat-log.enabled", false);
         this.combatLogNotifyPermission = config.getString("settings.staff-notify.combat-log.permission", "wobblecombat.notify");
-        this.combatLogNotifyFormat = config.getString("settings.staff-notify.combat-log.format", "&8[&cWobbleCombat&8] &f{player} &7logged during combat. &8(&f{attacker}&8)");
+        this.combatLogNotifyFormat = config.getString("settings.staff-notify.combat-log.format", "&8[&cWCombatLog&8] &f{player} &7logged during combat. &8(&f{attacker}&8)");
         this.minimumFinalDamageToTag = Math.max(0.0D, config.getDouble("settings.damage.minimum-final-damage-to-tag", 0.1D));
         this.ignoreSelfDamageTagging = config.getBoolean("settings.damage.ignore-self-damage-tagging", true);
         this.historyLimit = Math.max(1, config.getInt("settings.history-limit", 15));
@@ -664,7 +664,7 @@ public final class CombatManager {
             return;
         }
         String template = combatLogNotifyFormat == null || combatLogNotifyFormat.isBlank()
-                ? "&8[&cWobbleCombat&8] &f{player} &7logged during combat. &8(&f{attacker}&8)"
+                ? "&8[&cWCombatLog&8] &f{player} &7logged during combat. &8(&f{attacker}&8)"
                 : combatLogNotifyFormat;
         String rendered = Text.color(apply(player, template, Map.of(
                 "player", player.getName(),

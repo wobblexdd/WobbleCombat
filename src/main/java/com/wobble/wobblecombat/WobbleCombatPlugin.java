@@ -65,7 +65,7 @@ public final class WobbleCombatPlugin extends JavaPlugin {
 
         registerPlaceholderExpansion();
         logBypassPermissionSnapshot();
-        getLogger().info("WobbleCombat enabled.");
+        getLogger().info("WCombatLog enabled.");
     }
 
     @Override

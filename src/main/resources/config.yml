@@ -67,7 +67,7 @@ settings:
     combat-log:
       enabled: false
       permission: wobblecombat.notify
-      format: "&8[&cWobbleCombat&8] &f{player} &7logged during combat. &8(&f{attacker}&8)"
+      format: "&8[&cWCombatLog&8] &f{player} &7logged during combat. &8(&f{attacker}&8)"
 
   # Stored in-memory history entries per player for /wc history
   history-limit: 15

@@ -1,8 +1,8 @@
-# WobbleCombat
+# WCombatLog
 
 Production-ready combat tag plugin for Paper servers.
 
-WobbleCombat prevents players from escaping combat abuse by logging out, teleporting away, or bypassing PvP pressure with restricted actions during an active fight. The plugin is built for servers that want clear combat state, admin control, and extensibility for future ecosystem integrations.
+WCombatLog prevents players from escaping combat abuse by logging out, teleporting away, or bypassing PvP pressure with restricted actions during an active fight. The plugin is built for servers that want clear combat state, admin control, and extensibility for future ecosystem integrations.
 
 ## Features
 
@@ -101,9 +101,9 @@ settings:
 
 Available Bukkit events:
 
-- `WobbleCombatTagEvent`
-- `WobbleCombatUntagEvent`
-- `WobbleCombatLogEvent`
+- `WCombatLogTagEvent`
+- `WCombatLogUntagEvent`
+- `WCombatLogLogEvent`
 
 ## Build
 
@@ -114,7 +114,7 @@ mvn clean package
 Output:
 
 ```bash
-target/WobbleCombat-1.0.0.jar
+target/WCombatLog-1.0.0.jar
 ```
 
 ## Requirements
@@ -132,7 +132,7 @@ target/WobbleCombat-1.0.0.jar
 
 ## Release Notes Summary
 
-WobbleCombat 1.0.0 is the first stable release of the plugin. It includes production-focused combat tagging, punishments, storage backends, PlaceholderAPI integration, admin tooling, and anti-abuse protections intended for serious survival and PvP servers.
+WCombatLog 1.0.0 is the first stable release of the plugin. It includes production-focused combat tagging, punishments, storage backends, PlaceholderAPI integration, admin tooling, and anti-abuse protections intended for serious survival and PvP servers.
 
 ## License
 

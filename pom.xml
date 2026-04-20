@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wobble</groupId>
-    <artifactId>WobbleCombat</artifactId>
+    <artifactId>WCombatLog</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>WobbleCombat</name>
+    <name>WCombatLog</name>
     <description>Production-focused combat tag plugin for Paper servers.</description>
 
     <properties>

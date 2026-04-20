@@ -11,7 +11,7 @@ chat:
   tagged: "&cYou are now in combat for &f{time}&c seconds."
   untagged: "&aYou are no longer in combat."
   quit-broadcast: "&c{player} logged out during combat and died."
-  reload: "&aWobbleCombat reloaded."
+  reload: "&aWCombatLog reloaded."
   save-history: "&aCombat history saved."
   no-permission: "&cYou do not have permission."
   player-not-found: "&cPlayer not found."

@@ -31,7 +31,7 @@ public final class WobbleCombatCommand implements CommandExecutor, TabCompleter 
                 return true;
             }
             plugin.reloadAll();
-            sender.sendMessage(Text.color(plugin.getMessages().getString("chat.reload", "&aWobbleCombat reloaded.")));
+            sender.sendMessage(Text.color(plugin.getMessages().getString("chat.reload", "&aWCombatLog reloaded.")));
             return true;
         }
 

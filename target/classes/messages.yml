@@ -1,0 +1,67 @@
+action-bar:
+  combat: "&7Combat: &5{time}"
+  end: ""
+
+chat:
+  blocked-command: "&cYou cannot use that command while in combat. &7({time}s)"
+  blocked-ender-pearl: "&cYou cannot use ender pearls while in combat. &7({time}s)"
+  blocked-chorus-fruit: "&cYou cannot use chorus fruit while in combat. &7({time}s)"
+  blocked-portal: "&cYou cannot use portals while in combat. &7({time}s)"
+  blocked-elytra: "&cYou cannot start gliding while in combat. &7({time}s)"
+  tagged: "&cYou are now in combat for &f{time}&c seconds."
+  untagged: "&aYou are no longer in combat."
+  quit-broadcast: "&c{player} logged out during combat and died."
+  reload: "&aWCombatLog reloaded."
+  save-history: "&aCombat history saved."
+  no-permission: "&cYou do not have permission."
+  player-not-found: "&cPlayer not found."
+  clear-success: "&aCleared combat tag for &f{player}&a."
+  forcetag-success: "&aForced combat tag between &f{attacker} &aand &f{player}&a."
+  debug-header: "&6Debug for &f{player}&6:"
+  debug-line: "&8- &7{key}: &f{value}"
+  status-self: "&7Combat: &f{status} &8| &7Time: &f{time}s &8| &7Attacker: &f{attacker}"
+  status-other: "&7{player}: &f{status} &8| &7Time: &f{time}s &8| &7Attacker: &f{attacker}"
+
+death:
+  prefix: "&c☠ "
+  player: "{prefix}{victim} was eliminated by {attacker}"
+  combat: "{prefix}{victim} died in combat."
+
+bossbar:
+  enabled: false
+  text: "&cCombat: &f{time}s"
+  color: RED
+  overlay: PROGRESS
+
+titles:
+  tagged:
+    enabled: false
+    title: "&cCOMBAT"
+    subtitle: "&7Do not logout for &f{time}&7s"
+    fade-in: 5
+    stay: 30
+    fade-out: 10
+  untagged:
+    enabled: false
+    title: "&aSAFE"
+    subtitle: "&7You are no longer in combat"
+    fade-in: 5
+    stay: 20
+    fade-out: 10
+
+sounds:
+  tagged:
+    enabled: false
+    name: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 1.0
+    pitch: 0.8
+  untagged:
+    enabled: false
+    name: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 1.0
+    pitch: 1.2
+  combat-log:
+    enabled: false
+    name: ENTITY_WITHER_DEATH
+    volume: 1.0
+    pitch: 1.0
